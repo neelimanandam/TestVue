@@ -1,0 +1,23 @@
+<div id="app">
+  <v-app>
+    <!-- header -->
+    <v-app-bar app color="primary" dark>
+      <v-toolbar-title>Magic Photos</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <span v-if="$store.state.username">Hello {{ $store.state.username }}</span>
+      <v-btn v-if="$store.state.username" icon fab dark @click="logout()"><v-icon> {{ logoutIcon }} </v-icon></v-btn>
+    </v-app-bar>
+
+    <v-content>
+      <v-container fluid>
+        <!-- main router page -->
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+
+    <!-- footer -->
+    <v-footer app color="primary" dark>
+      Tangerine 1.0
+    </v-footer>
+  </v-app>
+</div>
