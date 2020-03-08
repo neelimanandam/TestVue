@@ -72,8 +72,10 @@ export default Vue.component('home', {
    })
   },
   template: `
-    <div>
-      <span v-if="loadingAlbums || loadingPhotos">Loading...</span>
+    <v-container fl>
+      <v-row justify="center" v-if="loadingAlbums || loadingPhotos">
+        <v-col class="text-center" cols="12">Loading...</v-col>
+      </v-row>
       <v-row v-else>
         <v-navigation-drawer
           v-model="drawer"
@@ -136,6 +138,6 @@ export default Vue.component('home', {
         <v-img v-if="selectedPhoto" :src="selectedPhoto.url">
         </v-img>
       </v-dialog>
-    </div>
+    </v-container>
   `
 })
