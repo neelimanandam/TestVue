@@ -8,6 +8,7 @@ export default Vue.component('home', {
     selectedAlbum: null,
     selectedPhoto: null,
     showPhotoDialog: false,
+    searchValue:'',
     albums: [],
     photos:[],
     albumIcon: mdiImageMultiple,
@@ -19,7 +20,7 @@ export default Vue.component('home', {
   computed: {
     filteredPhotos() {
       if(this.photos && this.selectedAlbum) {
-        return this.photos.filter(o => o.albumId === this.selectedAlbum.id)
+        return this.photos.filter(o => o.albumId === this.selectedAlbum.id && (!this.searchValue || (o.title && o.title.includes(this.searchValue))))
       }
       return []
     }
@@ -113,7 +114,10 @@ export default Vue.component('home', {
       
         <v-col>
           <v-card>
-            <v-card-title>Photos</v-card-title>
+            <v-card-title>Photos
+            <v-spacer/>
+            <v-text-field label="Search" v-model="searchValue"></v-text-field>
+            </v-card-title>
             <v-card-subtitle v-if="selectedAlbum">
               {{ selectedAlbum.title }}
             </v-card-subtitle>
