@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@mdi/js": "4.9.95",
-    "vue": "2.6.11",
+    "vue": "3.0.0",
     "vue-router": "3.1.6",
     "vuetify": "2.2.15",
     "vuex": "^3.1.2"
